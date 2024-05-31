@@ -8,6 +8,7 @@
 - Selenium
 - Log4j
 - Allure
+- Jenkins
 - Page Object
 - Page Element
 - Listener
