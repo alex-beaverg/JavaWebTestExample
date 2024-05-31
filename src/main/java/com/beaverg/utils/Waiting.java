@@ -2,10 +2,7 @@ package com.beaverg.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -37,6 +34,17 @@ public class Waiting {
             return false;
         }
         return true;
+    }
+
+    public static WebElement waitLocator(WebDriver driver, By locator) {
+        REPORT.info(String.format("[INFO]: Waiting for locator '%s' visibility...", locator));
+        try {
+            (new WebDriverWait(driver, duration))
+                    .until(ExpectedConditions.presenceOfElementLocated(locator));
+        } catch (TimeoutException e) {
+            REPORT.info(String.format("[ERROR]: Locator '%s' isn't presence!", locator));
+        }
+        return driver.findElement(locator);
     }
 
     public static boolean waitTitleContains(WebDriver driver, String titleContent) {

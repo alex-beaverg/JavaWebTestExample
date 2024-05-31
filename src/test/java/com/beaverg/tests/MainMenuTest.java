@@ -26,6 +26,7 @@ public class MainMenuTest extends BaseTest {
     @Description("Verifying opening main pages")
     public void verifyMainMenuItemTest(int mainMenuIndex, String title) {
         HomePage homePage = getHomePage();
+
         MainMenuComponent mainMenuComponent = homePage
                 .getMainMenuComponent();
         String mainMenuItem = mainMenuComponent
@@ -57,6 +58,7 @@ public class MainMenuTest extends BaseTest {
     @Description("Verifying opening other pages")
     public void verifyDropMainMenuItemTest(int mainMenuIndex, int dropIndex, String dropTitle) {
         HomePage homePage = getHomePage();
+
         MainMenuDropComponent menuDropComponent = homePage
                 .getMainMenuComponent()
                 .moveToMainMenuItemByIndex(mainMenuIndex);

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Test Site web testing" verbose="1" parallel="tests" thread-count="1">
+    <test name="Product testing" parallel="methods" thread-count="1">
+        <classes>
+            <class name="com.beaverg.tests.ProductTest"/>
+        </classes>
+    </test>
+</suite>
