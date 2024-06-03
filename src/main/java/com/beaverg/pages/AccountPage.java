@@ -13,7 +13,8 @@ public class AccountPage extends BasePage {
 
     private final String title;
 
-    private final By logoutLinkLocator = By.xpath("//li[@class='MyAccountTabListItem']//button[text()='Logout']");
+    private final WebElement logoutLink = Waiting
+            .waitLocator(driver, By.xpath("//li[@class='MyAccountTabListItem']//button[text()='Logout']"));
 
     public AccountPage(WebDriver driver) {
         super(driver);
@@ -29,7 +30,7 @@ public class AccountPage extends BasePage {
     }
 
     public HomePage clickLogoutLink() {
-        Waiting.clickIfPresent(driver, Waiting.waitLocator(driver, logoutLinkLocator));
+        Waiting.clickIfPresent(driver, logoutLink);
         REPORT.info("[INFO]: Logout link was clicked");
         return new HomePage(driver);
     }

@@ -19,8 +19,8 @@ public class ProductListComponent extends Base {
     @FindBy(xpath = ".//span[@itemprop='lowPrice']")
     private List<WebElement> productPriceList;
 
-    private final By currencyLocator = By
-            .xpath("//li[@class='ProductCard '][1]//span[@itemprop='lowPrice']//preceding-sibling::span");
+    private final WebElement currency = Waiting
+            .waitLocator(driver, By.xpath("//li[@class='ProductCard '][1]//span[@itemprop='lowPrice']//preceding-sibling::span"));
 
     public ProductListComponent(WebDriver driver) {
         super(driver);
@@ -38,7 +38,7 @@ public class ProductListComponent extends Base {
 
     public Product getProductByIndex(int index) {
         REPORT.info("[INFO]: Creating Product from Product List page...");
-        Waiting.waitTextInElement(driver, Waiting.waitLocator(driver, currencyLocator), "£");
+        Waiting.waitTextInElement(driver, currency, "£");
         return new Product(getProductNameByIndex(index), getProductPriceByIndex(index));
     }
 
