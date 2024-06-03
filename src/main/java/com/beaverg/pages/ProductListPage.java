@@ -3,7 +3,7 @@ package com.beaverg.pages;
 import com.beaverg.base.BasePage;
 import com.beaverg.components.part_of_page.ProductListComponent;
 import com.beaverg.utils.StringTransform;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,9 +27,9 @@ public class ProductListPage extends BasePage {
     public boolean isPageOpen(String pageTitle) {
         pageTitle = StringTransform.capitalizeWords(pageTitle);
         REPORT.info(String.format("[INFO]: Product List Page '%s' opening check...", pageTitle));
-        return Waiting.waitPageLoading(driver) &&
-                Waiting.waitTitleContains(driver, pageTitle) &&
-                Waiting.waitVisibility(driver, title) &&
-                Waiting.waitTextInElement(driver, title, pageTitle);
+        return Waits.waitPageLoading(driver) &&
+                Waits.waitTitleContains(driver, pageTitle) &&
+                Waits.waitVisibility(driver, title) &&
+                Waits.waitTextInElement(driver, title, pageTitle);
     }
 }

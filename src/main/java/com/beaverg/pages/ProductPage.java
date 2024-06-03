@@ -2,7 +2,7 @@ package com.beaverg.pages;
 
 import com.beaverg.base.BasePage;
 import com.beaverg.domain.Product;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,10 +23,10 @@ public class ProductPage extends BasePage {
 
     public boolean isPageOpen(String productName) {
         REPORT.info(String.format("[INFO]: Product Page '%s' opening check...", productName));
-        return Waiting.waitPageLoading(driver) &&
-                Waiting.waitTitleContains(driver, productName) &&
-                Waiting.waitVisibility(driver, this.productName) &&
-                Waiting.waitTextInElement(driver, this.productName, productName);
+        return Waits.waitPageLoading(driver) &&
+                Waits.waitTitleContains(driver, productName) &&
+                Waits.waitVisibility(driver, this.productName) &&
+                Waits.waitTextInElement(driver, this.productName, productName);
     }
 
     private String getProductName() {
@@ -41,7 +41,7 @@ public class ProductPage extends BasePage {
 
     public Product getProduct() {
         REPORT.info("[INFO]: Getting Product from Product page...");
-        Waiting.waitTextInElement(driver, addToBasketButton, "ADD TO BASKET");
+        Waits.waitTextInElement(driver, addToBasketButton, "ADD TO BASKET");
         return new Product(getProductName(), getProductPrice());
     }
 }

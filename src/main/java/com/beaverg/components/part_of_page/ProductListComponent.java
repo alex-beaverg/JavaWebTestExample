@@ -3,7 +3,7 @@ package com.beaverg.components.part_of_page;
 import com.beaverg.base.Base;
 import com.beaverg.domain.Product;
 import com.beaverg.pages.ProductPage;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +19,7 @@ public class ProductListComponent extends Base {
     @FindBy(xpath = ".//span[@itemprop='lowPrice']")
     private List<WebElement> productPriceList;
 
-    private final WebElement currency = Waiting
+    private final WebElement currency = Waits
             .waitLocator(driver, By.xpath("//li[@class='ProductCard '][1]//span[@itemprop='lowPrice']//preceding-sibling::span"));
 
     public ProductListComponent(WebDriver driver) {
@@ -38,12 +38,12 @@ public class ProductListComponent extends Base {
 
     public Product getProductByIndex(int index) {
         REPORT.info("[INFO]: Creating Product from Product List page...");
-        Waiting.waitTextInElement(driver, currency, "£");
+        Waits.waitTextInElement(driver, currency, "£");
         return new Product(getProductNameByIndex(index), getProductPriceByIndex(index));
     }
 
     public ProductPage clickProductByIndex(int index) {
-        Waiting.clickIfPresent(driver, productNameList.get(index));
+        Waits.clickIfPresent(driver, productNameList.get(index));
         REPORT.info("[INFO]: Product was clicked");
         return new ProductPage(driver);
     }

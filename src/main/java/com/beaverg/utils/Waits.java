@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Waiting {
+public class Waits {
     private static final Duration duration = Duration.ofSeconds(3);
-    private static final Logger REPORT = LogManager.getLogger(Waiting.class);
+    private static final Logger REPORT = LogManager.getLogger(Waits.class);
 
     public static boolean waitPageLoading(WebDriver driver) {
         REPORT.info("[INFO]: Waiting for page loading...");

@@ -2,7 +2,7 @@ package com.beaverg.components.drop;
 
 import com.beaverg.base.Base;
 import com.beaverg.pages.ProductListPage;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +27,7 @@ public class MainMenuDropComponent extends Base {
     }
 
     public ProductListPage clickDropMainMenuItemByIndex(int dropIndex) {
-        Waiting.clickIfPresent(driver, getDropMainMenuItemList().get(dropIndex));
+        Waits.clickIfPresent(driver, getDropMainMenuItemList().get(dropIndex));
         REPORT.info("[INFO]: Main Menu drop item was clicked");
         return new ProductListPage(driver);
     }

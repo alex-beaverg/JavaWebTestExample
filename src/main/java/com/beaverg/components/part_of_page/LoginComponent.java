@@ -2,7 +2,7 @@ package com.beaverg.components.part_of_page;
 
 import com.beaverg.base.Base;
 import com.beaverg.components.popup.SignInPopupComponent;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +17,7 @@ public class LoginComponent extends Base {
     }
 
     public SignInPopupComponent clickSignInButton() {
-        Waiting.clickIfPresent(driver, signInButton);
+        Waits.clickIfPresent(driver, signInButton);
         REPORT.info("[INFO]: Sign In button was clicked");
         return new SignInPopupComponent(driver);
     }

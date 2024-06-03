@@ -1,7 +1,7 @@
 package com.beaverg.pages;
 
 import com.beaverg.base.BasePage;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,7 @@ public class AccountPage extends BasePage {
 
     private final String title;
 
-    private final WebElement logoutLink = Waiting
+    private final WebElement logoutLink = Waits
             .waitLocator(driver, By.xpath("//li[@class='MyAccountTabListItem']//button[text()='Logout']"));
 
     public AccountPage(WebDriver driver) {
@@ -23,14 +23,14 @@ public class AccountPage extends BasePage {
 
     public boolean isPageOpen() {
         REPORT.info("[INFO]: Account Page '%s' opening check...");
-        return Waiting.waitPageLoading(driver) &&
-                Waiting.waitTitleContains(driver, title) &&
-                Waiting.waitVisibility(driver, titleElement) &&
-                Waiting.waitTextInElement(driver, titleElement, title);
+        return Waits.waitPageLoading(driver) &&
+                Waits.waitTitleContains(driver, title) &&
+                Waits.waitVisibility(driver, titleElement) &&
+                Waits.waitTextInElement(driver, titleElement, title);
     }
 
     public HomePage clickLogoutLink() {
-        Waiting.clickIfPresent(driver, logoutLink);
+        Waits.clickIfPresent(driver, logoutLink);
         REPORT.info("[INFO]: Logout link was clicked");
         return new HomePage(driver);
     }

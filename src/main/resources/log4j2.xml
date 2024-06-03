@@ -58,7 +58,7 @@
             <AppenderRef ref="tempFile"/>
             <AppenderRef ref="InsteadOfSOUT_ln"/>
         </Logger>
-        <Logger name="com.beaverg.utils.Waiting" level="info" additivity="false">
+        <Logger name="com.beaverg.utils.Waits" level="info" additivity="false">
             <AppenderRef ref="tempFile"/>
             <AppenderRef ref="InsteadOfSOUT_ln"/>
         </Logger>

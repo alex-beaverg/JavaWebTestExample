@@ -2,7 +2,7 @@ package com.beaverg.pages;
 
 import com.beaverg.base.BasePage;
 import com.beaverg.utils.PropertyGetter;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
@@ -16,6 +16,6 @@ public class HomePage extends BasePage {
 
     public boolean isPageOpen() {
         REPORT.info("[INFO]: Home Page opening check...");
-        return Waiting.waitPageLoading(driver) && driver.getCurrentUrl().equals(home_url);
+        return Waits.waitPageLoading(driver) && driver.getCurrentUrl().equals(home_url);
     }
 }

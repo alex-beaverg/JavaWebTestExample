@@ -3,7 +3,7 @@ package com.beaverg.components.part_of_page;
 import com.beaverg.base.Base;
 import com.beaverg.components.drop.MainMenuDropComponent;
 import com.beaverg.pages.ProductListPage;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -26,7 +26,7 @@ public class MainMenuComponent extends Base {
     }
 
     public ProductListPage clickMainMenuItemByIndex(int index) {
-        Waiting.clickIfPresent(driver, mainMenuItemsList.get(index));
+        Waits.clickIfPresent(driver, mainMenuItemsList.get(index));
         REPORT.info("[INFO]: Main Menu item was clicked");
         return new ProductListPage(driver);
     }

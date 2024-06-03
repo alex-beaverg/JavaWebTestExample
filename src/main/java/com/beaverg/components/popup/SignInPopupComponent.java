@@ -3,7 +3,7 @@ package com.beaverg.components.popup;
 import com.beaverg.base.Base;
 import com.beaverg.domain.User;
 import com.beaverg.pages.AccountPage;
-import com.beaverg.utils.Waiting;
+import com.beaverg.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,10 +27,10 @@ public class SignInPopupComponent extends Base {
 
     public AccountPage login(User user) {
         REPORT.info("[INFO]: Logining...");
-        Waiting.waitTextInElement(driver, signInButton, signInButtonText);
+        Waits.waitTextInElement(driver, signInButton, signInButtonText);
         emailInput.sendKeys(user.getEmail());
         passInput.sendKeys(user.getPass());
-        Waiting.clickIfPresent(driver, signInButton);
+        Waits.clickIfPresent(driver, signInButton);
         return new AccountPage(driver);
     }
 }
