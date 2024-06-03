@@ -5,8 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.concurrent.TimeUnit;
-
 public class WebDriverService {
     private static WebDriver driver;
 
@@ -14,8 +12,7 @@ public class WebDriverService {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            String browserName = null;
-            browserName = System.getProperty("browser");
+            String browserName = System.getProperty("browser");
             if (browserName == null) {
                 browserName = PropertyGetter.getProperty("browser");
             }

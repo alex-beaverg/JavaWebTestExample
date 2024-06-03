@@ -11,4 +11,9 @@
             <class name="com.beaverg.tests.ProductTest"/>
         </classes>
     </test>
+    <test name="Logining testing" parallel="methods" thread-count="1">
+        <classes>
+            <class name="com.beaverg.tests.LoginTest"/>
+        </classes>
+    </test>
 </suite>
