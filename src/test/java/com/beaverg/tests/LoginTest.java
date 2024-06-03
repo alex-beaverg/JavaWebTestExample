@@ -37,4 +37,17 @@ public class LoginTest extends BaseTest {
         AccountPage accountPage = signInPopupComponent.login(ObjectService.createInvalidUser());
         Assert.assertFalse(accountPage.isPageOpen(), "Opened page is Account Page!");
     }
+
+    @Test
+    @Story("Logout testing")
+    @Description("Logout test")
+    public void verifyLogoutTest() {
+        HomePage homePage = getHomePage();
+
+        SignInPopupComponent signInPopupComponent = homePage.getLoginComponent().clickSignInButton();
+        AccountPage accountPage = signInPopupComponent.login(ObjectService.createValidUser());
+
+        homePage = accountPage.clickLogoutLink();
+        Assert.assertTrue(homePage.isPageOpen(), "Home page isn't open!");
+    }
 }
